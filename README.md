@@ -1,49 +1,60 @@
-🌸 Iris Flower Classification API
-This is an end-to-end machine learning project that classifies iris flower species based on input features. The model is built using Logistic Regression and deployed via a Flask API, allowing real-time predictions through JSON input.
-________________________________________
-🔧 Tech Stack
-•	Python 🐍
-•	scikit-learn (for model building)
-•	Flask (for API deployment)
-•	Postman / Curl (for API testing)
-________________________________________
-📊 Features Used
-Feature Name	Description
-Sepal Length (cm)	Length of the outer part of the flower
-Sepal Width (cm)	Width of the outer part
-Petal Length (cm)	Length of the inner petals
-Petal Width (cm)	Width of the inner petals
-________________________________________
-🎯 Model Output
-The model classifies iris flowers into:
-•	0 → Setosa
-•	1 → Versicolor
-•	2 → Virginica
-________________________________________
-📫 How to Use the API
-🚀 Start the Server
-python app.py
-✅ Send a POST Request
-URL:
-http://127.0.0.1:5000/predict
-Body (raw JSON):
+# Iris Flower Classification API
+
+This is a simple machine learning project that predicts the species of an Iris flower based on four input features:
+
+* Sepal Length
+* Sepal Width
+* Petal Length
+* Petal Width
+
+The project uses a Logistic Regression model trained on the famous Iris dataset. The model is deployed as an API using Flask.
+
+## How It Works
+
+1. The model is trained and saved using `joblib`.
+2. A Flask app loads the model and exposes an endpoint at `/predict`.
+3. You can send a POST request with flower measurements, and get the predicted class in response.
+
+## Example Request
+
+```
+POST http://127.0.0.1:5000/predict
+Content-Type: application/json
+
 {
   "features": [5.1, 3.5, 1.4, 0.2]
 }
-Response:
+```
+
+## Example Response
+
+```
 {
   "prediction": 0
 }
-________________________________________
-📁 Files Included
-File	Description
-app.py	Flask app with model training + API
-model.pkl	Trained ML model
-scaler.pkl	Scaler for preprocessing
-requirements.txt	Python dependencies
-________________________________________
-📦 Installation (Local)
+```
+
+## Requirements
+
+* Python 3.x
+* Flask
+* scikit-learn
+* joblib
+
+Install dependencies with:
+
+```bash
 pip install -r requirements.txt
+```
+
+## Running the App
+
+```bash
 python app.py
-________________________________________
-🌐 This project is ideal for learning how to train, save, and deploy a simple ML model as an API.
+```
+
+Then test using Postman or Curl.
+
+---
+
+This is a great beginner-friendly project to learn about APIs and model deployment in machine learning.
